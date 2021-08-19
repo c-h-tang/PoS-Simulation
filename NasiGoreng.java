@@ -8,7 +8,7 @@ public class NasiGoreng extends Food {
     public NasiGoreng(int count) {
         super();
         this.count = count;
-        this.name = "NasiGoreng";
+        this.name = "Nasi Goreng";
         this.calories = 600;
         this.price = 10.00;
         this.type = "rice";

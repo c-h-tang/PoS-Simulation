@@ -1,6 +1,7 @@
 import javax.crypto.Mac;
 import javax.swing.*;
 import java.awt.*;
+import java.net.URI;
 import java.util.ArrayList;
 
 public class Bot {
@@ -72,12 +73,12 @@ public class Bot {
         PhillyCheesesteak pc = new PhillyCheesesteak(1);
         ShrimpPoBoy spb = new ShrimpPoBoy(1);
         BanhMi bm = new BanhMi(1);
-        Reuben r = new Reuben(1);
+        Reuben reu = new Reuben(1);
         TunaSaladSandwich tss = new TunaSaladSandwich(1);
         list.add(pc);
         list.add(spb);
         list.add(bm);
-        list.add(r);
+        list.add(reu);
         list.add(tss);
     }
 
@@ -93,6 +94,25 @@ public class Bot {
         }
     }
 
+    public static void addSearchFeature(JPanel searchPanel) {
+        searchPanel.setLayout(new BoxLayout(searchPanel, BoxLayout.Y_AXIS));
+
+        JPanel blankPanel = new JPanel();
+        blankPanel.setPreferredSize(new Dimension(500, 30));
+        blankPanel.setBackground(Color.WHITE);
+        searchPanel.add(blankPanel);
+
+        JPanel sp = new JPanel();
+        sp.setBackground(Color.white);
+        sp.setPreferredSize(new Dimension(500, 70));
+        JButton searchButton = new JButton("Search");
+        JTextField searchInput = new JTextField("", 20);
+
+        sp.add(searchInput);
+        sp.add(searchButton);
+        searchPanel.add(sp);
+    }
+
     public static void makeCuisineButtons(JPanel cuisinePanel) {
         ArrayList<String> uniqueCuisines = new ArrayList<>();
 
@@ -106,7 +126,14 @@ public class Bot {
             String uppercaseCuisine = cuisine.substring(0, 1).toUpperCase() + cuisine.substring(1);
             JButton b = new JButton(uppercaseCuisine);
             b.setPreferredSize(new Dimension(130, 28));
-            System.out.println("Created a button");
+
+            b.addActionListener(e2 -> {
+                for(Food ff : list) {
+                    if (ff.getType().equals(b.getText().toLowerCase())) {
+                        System.out.println(ff.getName());
+                    }
+                }
+            });
             cuisinePanel.add(b);
         }
     }
@@ -122,15 +149,17 @@ public class Bot {
 
         // LHS
         JPanel food = new JPanel();
-        food.setBackground(Color.RED);
         food.setPreferredSize(new Dimension(500, 600));
         food.setLayout(new BoxLayout(food, BoxLayout.Y_AXIS));
+        food.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
 
         // allow user to search for a specific food
         JPanel searchFood = new JPanel();
         searchFood.setPreferredSize(new Dimension(500, 100));
-        searchFood.setBackground(Color.BLACK);
+        searchFood.setBackground(Color.WHITE);
         food.add(searchFood);
+
+        addSearchFeature(searchFood);
 
         // Middle LHS of panel
         JPanel foodPanel = new JPanel();
