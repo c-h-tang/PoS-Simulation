@@ -1,11 +1,62 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Bot {
     public static ArrayList<Food> list = new ArrayList<>();
+    public static ArrayList<Food> cart = new ArrayList<>();
+
+    public static void fillList() {
+        // fruits
+        Strawberry s = new Strawberry(1);
+        Apple a = new Apple(1);
+        Banana b = new Banana(1);
+        Orange o = new Orange(1);
+        Grapes g = new Grapes(1);
+        list.add(a);
+        list.add(s);
+        list.add(b);
+        list.add(o);
+        list.add(g);
+
+        // fast food
+        Hamburger h = new Hamburger(1);
+        ChickenTender ct = new ChickenTender(1);
+        Fries f = new Fries(1);
+        Taco t = new Taco(1);
+        CheeseCurds cc = new CheeseCurds(1);
+        list.add(h);
+        list.add(ct);
+        list.add(f);
+        list.add(t);
+        list.add(cc);
+
+        // salads
+        CaesarSalad cs = new CaesarSalad(1);
+        GreekSalad gs = new GreekSalad(1);
+        ChoppedSalad chs = new ChoppedSalad(1);
+        CobbSalad cbs = new CobbSalad(1);
+        MediterraneanSalad ms = new MediterraneanSalad(1);
+        list.add(cs);
+        list.add(gs);
+        list.add(chs);
+        list.add(cbs);
+        list.add(ms);
+
+        // noodles
+        Ramen r = new Ramen(1);
+
+
+        ShrimpFriedRice sfr = new ShrimpFriedRice(1);
+
+
+        PhillyCheesesteak pc = new PhillyCheesesteak(1);
+
+
+        list.add(r);
+        list.add(sfr);
+        list.add(pc);
+    }
 
     public static void testObject() {
         for (Food f : list) {
@@ -131,30 +182,8 @@ public class Bot {
     }
 
     public static void main(String[] args) {
-        Strawberry s = new Strawberry(1);
-        Apple a = new Apple(1);
-        Banana b = new Banana(1);
-        Orange o = new Orange(1);
-        Grapes g = new Grapes(1);
-        Hamburger h = new Hamburger(2);
-        CaesarSalad cs = new CaesarSalad(3);
-        Ramen r = new Ramen(1);
-        ShrimpFriedRice sfr = new ShrimpFriedRice(1);
-        PhillyCheesesteak pc = new PhillyCheesesteak(1);
-
-        list.add(a);
-        list.add(s);
-        list.add(b);
-        list.add(o);
-        list.add(g);
-        list.add(h);
-        list.add(cs);
-        list.add(r);
-        list.add(sfr);
-        list.add(pc);
-
-        testObject();
-
+        fillList();
+        // testObject();
 
         beginPoS();
     }
