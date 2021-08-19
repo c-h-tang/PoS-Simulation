@@ -19,6 +19,24 @@ public class Bot {
         }
     }
 
+    public static void makeCuisineButtons(JPanel cuisinePanel) {
+        ArrayList<String> uniqueCuisines = new ArrayList<>();
+
+        for (Food f : list) {
+            String thisCuisine = f.getType().toLowerCase();
+            if (!uniqueCuisines.contains(thisCuisine)) {
+                uniqueCuisines.add(thisCuisine);
+            }
+        }
+        for (String cuisine : uniqueCuisines) {
+            String uppercaseCuisine = cuisine.substring(0, 1).toUpperCase() + cuisine.substring(1);
+            JButton b = new JButton(uppercaseCuisine);
+            b.setPreferredSize(new Dimension(130, 28));
+            System.out.println("Created a button");
+            cuisinePanel.add(b);
+        }
+    }
+
     public static void beginPoS() {
         // instantiating the opening frame
         JFrame openingPage = new JFrame("Point of Sales Simulation");
@@ -43,14 +61,31 @@ public class Bot {
         // Middle LHS of panel
         JPanel foodPanel = new JPanel();
         foodPanel.setPreferredSize(new Dimension(500, 500));
-        foodPanel.setBackground(Color.PINK);
+        foodPanel.setBackground(Color.WHITE);
         food.add(foodPanel);
 
         // shows the cuisines offered
         JPanel cuisines = new JPanel();
         cuisines.setPreferredSize(new Dimension(500, 120));
-        cuisines.setBackground(Color.ORANGE);
+        cuisines.setBackground(Color.WHITE);
         foodPanel.add(cuisines);
+
+        JPanel cuisineText = new JPanel();
+        cuisineText.setPreferredSize(new Dimension(500, 30));
+        cuisineText.setBackground(Color.WHITE);
+
+        JLabel cuisineNote = new JLabel();
+        cuisineNote.setFont(new Font("Serif", Font.BOLD, 20));
+        cuisineNote.setText("Select a cuisine to narrow your search");
+        cuisineText.add(cuisineNote);
+
+        JPanel cuisineSelection = new JPanel();
+        cuisineSelection.setPreferredSize(new Dimension(500, 90));
+        cuisineSelection.setBackground(Color.WHITE);
+
+        makeCuisineButtons(cuisineSelection);
+        cuisines.add(cuisineText);
+        cuisines.add(cuisineSelection);
 
         // shows the food choices for a particular cuisine
         JPanel foodChoices = new JPanel();
@@ -96,21 +131,31 @@ public class Bot {
     }
 
     public static void main(String[] args) {
-     /*   Strawberry s = new Strawberry(1);
+        Strawberry s = new Strawberry(1);
         Apple a = new Apple(1);
         Banana b = new Banana(1);
         Orange o = new Orange(1);
         Grapes g = new Grapes(1);
+        Hamburger h = new Hamburger(2);
+        CaesarSalad cs = new CaesarSalad(3);
+        Ramen r = new Ramen(1);
+        ShrimpFriedRice sfr = new ShrimpFriedRice(1);
+        PhillyCheesesteak pc = new PhillyCheesesteak(1);
 
         list.add(a);
         list.add(s);
         list.add(b);
         list.add(o);
         list.add(g);
+        list.add(h);
+        list.add(cs);
+        list.add(r);
+        list.add(sfr);
+        list.add(pc);
 
         testObject();
 
-      */
+
         beginPoS();
     }
 }
