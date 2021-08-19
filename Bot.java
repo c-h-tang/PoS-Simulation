@@ -1,3 +1,4 @@
+import javax.crypto.Mac;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -45,17 +46,39 @@ public class Bot {
 
         // noodles
         Ramen r = new Ramen(1);
-
-
-        ShrimpFriedRice sfr = new ShrimpFriedRice(1);
-
-
-        PhillyCheesesteak pc = new PhillyCheesesteak(1);
-
-
+        LoMein lm = new LoMein(1);
+        Laksa l = new Laksa(1);
+        PadThai pt = new PadThai(1);
+        MacnCheese mnc = new MacnCheese(1);
         list.add(r);
+        list.add(lm);
+        list.add(l);
+        list.add(pt);
+        list.add(mnc);
+
+        // rice dishes
+        ShrimpFriedRice sfr = new ShrimpFriedRice(1);
+        ChickenFriedRice cfr = new ChickenFriedRice(1);
+        VegetableFriedRice vfr = new VegetableFriedRice(1);
+        Paella p = new Paella(1);
+        NasiGoreng ng = new NasiGoreng(1);
         list.add(sfr);
+        list.add(cfr);
+        list.add(vfr);
+        list.add(p);
+        list.add(ng);
+
+        // sandwiches
+        PhillyCheesesteak pc = new PhillyCheesesteak(1);
+        ShrimpPoBoy spb = new ShrimpPoBoy(1);
+        BanhMi bm = new BanhMi(1);
+        Reuben r = new Reuben(1);
+        TunaSaladSandwich tss = new TunaSaladSandwich(1);
         list.add(pc);
+        list.add(spb);
+        list.add(bm);
+        list.add(r);
+        list.add(tss);
     }
 
     public static void testObject() {
