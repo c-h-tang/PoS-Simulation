@@ -138,6 +138,10 @@ public class Bot {
         }
     }
 
+    public static void showCuisineSelection(JPanel cuisineSelection, boolean buttonSelected) {
+
+    }
+
     public static void beginPoS() {
         // instantiating the opening frame
         JFrame openingPage = new JFrame("Point of Sales Simulation");
@@ -185,6 +189,8 @@ public class Bot {
         JPanel cuisineSelection = new JPanel();
         cuisineSelection.setPreferredSize(new Dimension(500, 90));
         cuisineSelection.setBackground(Color.WHITE);
+
+        showCuisineSelection(cuisineSelection, true);
 
         makeCuisineButtons(cuisineSelection);
         cuisines.add(cuisineText);
